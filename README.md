@@ -3,13 +3,12 @@ In this tutorial we explain how to install InfluxDB and Grafana on the kubernete
 
 ## Prerequisites
 - Google Cloud Project linked to a billing account. If you are a first time user of Googles Cloud services you will get $300 credit on your new billing account.
-- Python
 ### 1. Create a kubernetes cluster on GCP
 - From the side menu choose Kubernetes Engine --> clusters
 - Click on Create Cluster button
  ### ![image](/screenshots/cluster_button.png)
 - Choose your first cluster option
-- Modify the number of nodes to 2 and the machine type to 1 vCPU
+- Modify the number of nodes to 1 and the machine type to 1 vCPU
  ### ![image](/screenshots/create_cluster.png)
 - Click create
 - Wait few minutes until your cluster is up and running 
@@ -24,7 +23,7 @@ In this tutorial we explain how to install InfluxDB and Grafana on the kubernete
 ### 3. Cloning the repository on the cloud shell
 - Run the following commands
 ```bash
-git clone "https://github.com/ThinkBigEg/influxDB-grafana-gke"
+git clone "https://github.com/Balipeace/influxDB-grafana-gke"
 cd influxDB-grafana-gke/configs/
 ```
 ### 4. Running the kubernetes config files
@@ -55,47 +54,20 @@ kubectl get pods
 # Replace <NAME OF THE CONTAINER>
 kubectl exec -it <NAME OF THE CONTAINER> influx
 ```
-- Create solar_db database
+- Create emon_db database
 ```bash
-create database solar_db
+create database emon_db
 ```
 - Exit the container 
 ```bash
 exit
 ```
-### 6. Running the two sensor simulators
-- Clone the repository on your local machine
-```bash
-git clone "https://github.com/ThinkBigEg/influxDB-grafana-gke"
-cd python
-```
-- From the cloud shell run :
-```bash
-kubectl get services influxdb-external-service
-```
-- Copy the External ip and modify the two python files in repository on you local machine by **replacing <EXTERNAL IP>** by the External ip that you copied
-  ```python
-  INFLUXDB_HOST = '<EXTERNAL IP>'
-  ```
+
 - Install influxdb module
   
   ```bash
   pip install influxdb
   ```
-- Executing the two python files open two terminals in python folder
-  - In the 1st terminal run
-  
-  ```bash
-  python producer_sensor.py
-  ```
-  - In the 2nd terminal run
-  
-  ```bash
-  python consumer_sensor.py
-  ```
-Now the sensors are sending data to influxDB in the solar_db database
-## NOTE: 
-At this point you can modify the python code the get the data from **Real Sensors** and send it to influxDB instead of generating random values
 
 ### 7. Adding a dashboard on Grafana for real-time analytics
 - In Kubernetes Engine side menu click on Services
