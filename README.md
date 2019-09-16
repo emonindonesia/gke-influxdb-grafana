@@ -1,8 +1,8 @@
-## InfluxDB with Grafana on Google Kubernetes Engine by [![N|Solid](https://think-big.solutions/img/logo.png)](https://think-big.solutions)
-In this tutorial we explain how to get real time analytics of energy produced and consumed from two solar stations simulators using influxDB together with grafana hosted on the kubernetes engine of google
+## InfluxDB with Grafana on Google Kubernetes Engine by [![N|Solid](https://emonindonesia.com/images/logo.png)](https://emonindonesia.com)
+In this tutorial we explain how to install InfluxDB and Grafana on the kubernetes engine of Google.
 
 ## Prerequisites
-- Google Cloud Project linked to a billing account
+- Google Cloud Project linked to a billing account. If you are a first time user of Googles Cloud services you will get $300 credit on your new billing account.
 - Python
 ### 1. Create a kubernetes cluster on GCP
 - From the side menu choose Kubernetes Engine --> clusters
