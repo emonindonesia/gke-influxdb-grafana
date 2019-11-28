@@ -30,7 +30,6 @@ cd influxDB-grafana-gke/configs/
 - Now we want to open the pods and services of influxDB and grafana
 - Run the following commands
 ```bash
-kubectl create -f pv-claim.yaml
 kubectl create -f influxdb.yaml
 kubectl create -f grafana.yaml
 kubectl create -f influxdb-internal-service.yaml
