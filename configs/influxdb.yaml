@@ -16,14 +16,14 @@ spec:
       containers:
       - image: library/influxdb
         env:
-        - name: DEMO_GREETING
-          value: "Hello from the environment"
-        - name: DEMO_FAREWELL
-          value: "Such a sweet sorrow"
-          INFLUXDB_HTTP_AUTH_ENABLED=true
-INFLUXDB_ADMIN_USER=admin
-INFLUXDB_ADMIN_PASSWORD=5up3down6left
-INFLUXDB_DB=emon
+        - name: INFLUXDB_HTTP_AUTH_ENABLED
+          value: "true"
+        - name: INFLUXDB_ADMIN_USER
+          value: "admin"
+        - name: INFLUXDB_ADMIN_PASSWORD
+          value: "5up3down6left"
+        - name: INFLUXDB_DB
+          value: "emon"          
         name: influxdb-container
         ports:
         - containerPort: 8086
@@ -37,10 +37,3 @@ INFLUXDB_DB=emon
       - name: influxdb-persistent-storage
         persistentVolumeClaim:
           claimName: emon-claim
-          
-          
-      spec:
-  containers:
-  - name: envar-demo-container
-    image: gcr.io/google-samples/node-hello:1.0
-    
