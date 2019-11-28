@@ -27,4 +27,4 @@ spec:
       volumes:
       - name: influxdb-persistent-storage
         persistentVolumeClaim:
-          claimName: pv-claim
+          claimName: emon-claim
